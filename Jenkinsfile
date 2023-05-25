@@ -64,7 +64,7 @@ node{
 				docker run -d --rm -p $backendHttpPort:$backendHttpPort --name $backendContainerName $dockerHubUser/$backendContainerName:$tag
 				docker run -d --rm -p $frontendHttpPort:$frontendHttpPort --name $frontendContainerName $dockerHubUser/$frontendContainerName:$tag
 			"""
-			echo "Application started on port: ${httpPort} (http)"
+			echo "Application started on port: ${frontendHttpPort} (http)"
 		}
 	}
 }
