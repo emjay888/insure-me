@@ -1,8 +1,0 @@
-- name : Configure Docker on EC2 Instances
-  hosts : webservers
-  connection : ssh
-  tasks : 
-  - name: Deploying Backend Container
-    command: docker run -itd -p 8080:8080 anujsharma1990/insure-me-backend:latest
-  - name: Deploying Frontend Container
-    command: docker run -itd -p 3000:3000 anujsharma1990/insure-me-frontend:latest
