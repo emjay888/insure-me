@@ -59,7 +59,8 @@ node{
 	stage('Docker Container Deployment'){
 		node('DockerHost'){
 			sh """
-				docker rm $containerName -f
+				docker rm $backendContainerName -f
+				docker rm $frontendContainerName -f
 				docker run -d --rm -p $backendHttpPort:$backendHttpPort --name $backendContainerName $dockerHubUser/$backendContainerName:$tag
 				docker run -d --rm -p $frontendHttpPort:$frontendHttpPort --name $frontendContainerName $dockerHubUser/$frontendContainerName:$tag
 			"""
