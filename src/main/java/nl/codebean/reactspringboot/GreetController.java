@@ -8,6 +8,6 @@ public class GreetController {
 
   @RequestMapping("/api/greet")
   public String greet() {
-    return "Greetings from CodeBean!";
+    return "Hello, the time at the server is now " + new Date() + "\n";
   }
 }
