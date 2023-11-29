@@ -5,7 +5,7 @@ node{
     stage('Prepare Environment'){
         echo 'Initialize Environment'
         tag="latest"
-		withCredentials([usernamePassword(credentialsId: 'emjay888', usernameVariable: 'emjay888', passwordVariable: 'Doremifasolateedo')]) {
+		withCredentials([usernamePassword(credentialsId: 'mjolowoyeye@gmail.com', usernameVariable: 'emjay888', passwordVariable: 'Doremifasolateedo')]) {
 			dockerHubUser="$emjay888"
         } 
 		backendContainerName="insure-me-backend"
