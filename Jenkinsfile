@@ -1,4 +1,4 @@
-mjaynode{
+node{
     
     def docker, tag, dockerHubUser, backendContainerName, frontendContainerName, backendHttpPort, frontendHttpPort = ""
     
