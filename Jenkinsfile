@@ -1,12 +1,12 @@
-node{
+mjaynode{
     
     def docker, tag, dockerHubUser, backendContainerName, frontendContainerName, backendHttpPort, frontendHttpPort = ""
     
     stage('Prepare Environment'){
         echo 'Initialize Environment'
         tag="latest"
-		withCredentials([usernamePassword(credentialsId: 'emjay888', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
-			dockerHubUser="$dockerUser"
+		withCredentials([usernamePassword(credentialsId: 'emjay888', usernameVariable: 'emjay888', passwordVariable: 'Doremifasolateedo')]) {
+			dockerHubUser="$emjay888"
         } 
 		backendContainerName="insure-me-backend"
 		frontendContainerName="insure-me-frontend"
@@ -34,23 +34,23 @@ node{
 	
     stage('Backend Docker Image Build'){
         echo 'Creating Docker image'
-        sh "docker build -t $dockerHubUser/$backendContainerName:$tag --pull --no-cache ."
+        sh "docker build -t $emjay888/$backendContainerName:$tag --pull --no-cache ."
     }  
 
     stage('Frontend Docker Image Build'){
         dir("frontend"){
 			echo 'Creating Docker image'
-			sh "docker build -t $dockerHubUser/$frontendContainerName:$tag --pull --no-cache ."
+			sh "docker build -t $emjay888/$frontendContainerName:$tag --pull --no-cache ."
 		}
     }  
 	
     stage('Publishing Image to DockerHub'){
         echo 'Pushing the docker image to DockerHub'
-        withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'dockerUser', passwordVariable: 'dockerPassword')]) {
+        withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'emjay888', passwordVariable: 'dockerPassword')]) {
 			sh """
-				docker login -u $dockerUser -p $dockerPassword
-				docker push $dockerUser/$backendContainerName:$tag
-				docker push $dockerUser/$frontendContainerName:$tag
+				docker login -u $emjay888 -p $dockerPassword
+				docker push $emjay888/$backendContainerName:$tag
+				docker push $emjay888/$frontendContainerName:$tag
 			"""
 			echo "Image push complete"
         } 
